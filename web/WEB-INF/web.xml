@@ -12,7 +12,21 @@
      
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class> com.fpmislata.banco_api.presentation.database.ServletContextListenerImpl </listener-class>
     </listener> 
+    
+    <filter>
+        <filter-name>FilterImplSecurity</filter-name>
+        <filter-class> com.fpmislata.banco_api.presentation.security.FilterImplSecurity </filter-class>
+        
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterImplSecurity</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+    
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -20,6 +34,9 @@
             classpath:applicationContext.services.xml
         </param-value>
     </context-param>    
+ 
+ 
+ 
  
     <servlet>
         <servlet-name>dispatcher</servlet-name> 

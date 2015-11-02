@@ -11,5 +11,5 @@
   
 
     <bean class="com.fpmislata.banco_api.presentation.json.impl.JsonTransformerImplJackson"/>
- 
+    <bean class="com.fpmislata.banco_api.presentation.database.impl.DatabaseMigrationImplFlyWay"/>
 </beans>
