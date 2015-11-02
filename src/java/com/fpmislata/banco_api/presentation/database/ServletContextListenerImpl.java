@@ -14,16 +14,24 @@ public class ServletContextListenerImpl implements ServletContextListener {
 
     @Autowired
     JsonTransformer jsonTransformer;
+    @Autowired
+    DatabaseMigration databaseMigration;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("INICIADO CONTEXTO.");
+        WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
+        AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
+        autowireCapableBeanFactory.autowireBean(this);
+        databaseMigration.migrate();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("PARADO CONTEXTO.");
-        
+    /*    WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContextEvent.getServletContext());
+AutowireCapableBeanFactory autowireCapableBeanFactory=webApplicationContext.getAutowireCapableBeanFactory();
+autowireCapableBeanFactory.autowireBean(this);
+        databaseMigration.migrate();*/
+
     }
 
 }
