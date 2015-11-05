@@ -24,6 +24,7 @@ public class DatabaseMigrationImplFlyWay implements DatabaseMigration {
         flyway.setDataSource(dataSource);
         flyway.setLocations("com.fpmislata.banco_api.presentation.database.scripts");
         flyway.setEncoding("UTF-8");
+        flyway.migrate();
         
     }
 }

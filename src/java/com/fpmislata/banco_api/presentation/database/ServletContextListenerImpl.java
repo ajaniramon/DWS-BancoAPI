@@ -12,8 +12,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class ServletContextListenerImpl implements ServletContextListener {
 
-    @Autowired
-    JsonTransformer jsonTransformer;
+  
     @Autowired
     DatabaseMigration databaseMigration;
 
@@ -22,7 +21,8 @@ public class ServletContextListenerImpl implements ServletContextListener {
         WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
         AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
         autowireCapableBeanFactory.autowireBean(this);
-        databaseMigration.migrate();
+        //databaseMigration.migrate(); 
+        //NO MAS MIGRACIONES POR HOY
     }
 
     @Override
