@@ -11,6 +11,11 @@ public class WebSession {
     public WebSession() {
     }
 
+    public WebSession(Usuario usuario, Date fecha) {
+        this.usuario = usuario;
+        this.fecha = fecha;
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }

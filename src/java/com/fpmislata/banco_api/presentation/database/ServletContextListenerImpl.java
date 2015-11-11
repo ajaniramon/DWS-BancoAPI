@@ -18,10 +18,10 @@ public class ServletContextListenerImpl implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-     /*  WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
-        AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
-        autowireCapableBeanFactory.autowireBean(this);
-              databaseMigration.migrate(); */
+//      WebApplicationContext webApplicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
+//        AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
+//        autowireCapableBeanFactory.autowireBean(this);
+//              databaseMigration.migrate(); 
        
       
     

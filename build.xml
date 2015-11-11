@@ -10,6 +10,10 @@
 <project name="banco_api" default="default" basedir=".">
     <description>Builds, tests, and runs the project banco_api.</description>
     <import file="nbproject/build-impl.xml"/>
+  <!--   <property name="libs.CopyLibs.classpath" value="ant/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar" />!-->
+    <!--<property name="j2ee.server.home" value="ant" />!-->
+ <!--<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />!-->
+
     <!--
 
     There exist several targets which are by default empty and which can be 
@@ -68,4 +72,24 @@
     nbproject/build-impl.xml file. 
 
     -->
+ <!--<target name="deployProduccion" depends="-enable-produccion,dist">
+ <deploy url="http://52.24.9.39:8080/manager/text" username="deploy" password="despliegue1" path="/banco-api" war="C:\Users\alumno\Documents\NetBeansProjects\banco_api\dist\banco_api.war"/> 
+ </target>
+    <target name="-base-datos-produccion" if="enableProduccion">
+        <delete file="./build/web/META-INF/context.xml"/>
+        <move todir="./build/web/META-INF/" includeemptydirs="false">
+            <fileset dir="./build/web/META-INF/"/>
+            <mapper type="glob" from="contextProduccion.xml" to="context.xml"/>
+        </move>
+    </target>
+   
+    <target name="-pre-dist" depends="-base-datos-produccion">
+        <echo>SE HA EJECUTADO -PRE-DIST</echo>
+    </target>!-->
+    
+   <!-- <target name="-enable-produccion">
+        <property name="enableProduccion" value="true"/>
+    </target> !-->
+    
+    
 </project>
