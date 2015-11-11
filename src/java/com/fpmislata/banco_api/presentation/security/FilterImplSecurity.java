@@ -2,7 +2,6 @@ package com.fpmislata.banco_api.presentation.security;
 
 import com.fpmislata.banco.business.domain.Usuario;
 import com.fpmislata.banco.security.Authorization;
-import com.fpmislata.banco.security.AuthorizationImplDummy;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,7 +11,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -49,6 +47,7 @@ public class FilterImplSecurity implements Filter {
             chain.doFilter(servletRequest, servletResponse);
         } else {
             httpServletResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            httpServletResponse.getWriter().println("<h1> LOGUEATE PRIMERO QUE NO TIENES PERMISO PARA VER ESTO, TRUHÁN. </h1>");
         }
 
     }
