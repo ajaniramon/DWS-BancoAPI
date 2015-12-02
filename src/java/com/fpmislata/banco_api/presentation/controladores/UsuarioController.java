@@ -2,6 +2,7 @@ package com.fpmislata.banco_api.presentation.controladores;
 
 import com.fpmislata.banco.business.domain.Usuario;
 import com.fpmislata.banco.business.service.UsuarioService;
+import com.fpmislata.banco.persistence.core.BusinessException;
 import com.fpmislata.banco_api.presentation.json.JsonTransformer;
 import java.io.IOException;
 import java.util.List;
@@ -47,7 +48,7 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = {"/usuario"}, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public void insert(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada) {
+    public void insert(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestBody String jsonEntrada) throws BusinessException {
         try {
             httpServletResponse.getWriter().println(jsonTransformer.toJson(usuarioService.insert(jsonTransformer.fromJson(jsonEntrada, Usuario.class))));
             httpServletResponse.setStatus(200);
